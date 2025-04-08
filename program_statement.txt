@@ -1,0 +1,49 @@
+
+1.using input() function take one number from user and using ternary operators
+
+num = int(input("Enter a number: "))
+print("Even" if num % 2 == 0 else "Odd")
+
+output
+Enter a number:  45
+Odd
+Enter a number:  2
+Even
+...............................
+2.using input function take two number and then swap the number
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+a = a + b
+b = a - b
+a = a - b
+print(a)
+print(b)
+
+output
+Enter first number:  2
+Enter second number:  3
+3
+2
+.............................................
+4.find the simple intrest on rs .200 for 5 year at 5%per year
+Principal= 200 
+Time = 5   
+Rate_intrest = 5    
+
+SI = (Principal * Time * Rate_intrest) / 100 
+print(f"Simple Interest is: {SI}")
+
+output
+Simple Interest is: 50.0
+.....................................................
+3.write a program to convert kilometers to miles
+km = float(input("Enter distance in kilometers: "))
+miles = km * 0.621371 
+print(km)
+
+output
+Enter distance in kilometers:  45
+45.0
+.........................................................
+

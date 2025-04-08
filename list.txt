@@ -1,0 +1,51 @@
+1.write a python program to sum all the  items in a list
+
+number=[10,20,30,40,50]
+res=sum(number)
+print(res)
+
+output:
+150
+
+
+2.write a python program to get the largest and smallest number from a list without builtin function
+
+
+numbers = [10, 45, 23, 89, 5, 78, 99, 2]
+
+# Initialize smallest and largest with the first element
+smallest = numbers[0]
+largest = numbers[0]
+
+# Iterate through the list
+for num in numbers:
+    if num < smallest:
+        smallest = num
+    if num > largest:
+        largest = num
+
+print("Smallest number:", smallest)
+print("Largest number:", largest)
+
+
+output:
+Smallest number: 2
+Largest number: 99
+
+3.write a python program to find duplicate valuesfrom the list and display them
+num_list = [10, 20, 30, 10, 40, 50, 20, 60, 30, 70, 80, 10]
+
+duplicates = []
+seen = set()
+
+for num in num_list:
+    if num in seen and num not in duplicates:
+        duplicates.append(num)
+    else:
+        seen.add(num)
+
+print("Duplicate values:", duplicates)
+
+
+output:
+Duplicate values: [10, 20, 30]

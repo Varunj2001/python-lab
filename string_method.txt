@@ -1,0 +1,45 @@
+4.program to count a vowel in a string.
+def count_vowels(s):
+    vowels = "aeiouAEIOU"
+    count = sum(1 for c in s if c in vowels)
+    print(f"Vowel Count: {count}")
+
+# Example
+count_vowels("welcome to python assiment.")
+output:
+Vowel Count: 8
+...................................................................
+3. Count uppercase, lowercase, numbers, and special characters.
+def count_char(s):
+    uppercase = sum(c.isupper() for c in s)
+    lowercase = sum(c.islower() for c in s)
+    numbers = sum(c.isdigit() for c in s)
+    special = len(s) - (uppercase + lowercase + numbers)
+
+    print(f"UpperCase : {uppercase}")
+    print(f"LowerCase : {lowercase}")
+    print(f"NumberCase : {numbers}")
+    print(f"SpecialCase : {special}")
+
+# Example
+count_char("Hell0 W0rld ! 123 * # welcome to pYtHoN")
+output:
+UpperCase : 5
+LowerCase : 18
+NumberCase : 5
+SpecialCase : 11
+...................................................
+2.remove the duplicate string .
+s = "String and String Function"
+words = s.split()  # Split into words
+result = []
+seen = set()
+
+for word in words:
+    if word not in seen:
+        result.append(word)
+        seen.add(word)
+
+output = " ".join(result)
+print("Output:", output)
+......................................

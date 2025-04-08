@@ -1,0 +1,47 @@
+1. Read a CSV file, replace missing values with defaults
+
+import csv
+
+def clean_csv(filename):
+    with open(filename, 'r') as file:
+        reader = csv.reader(file)
+        data = []
+        
+        for row in reader:
+            row = [col if col else "Unknown" for col in row]  # Replace missing values
+            data.append(row)
+        
+        for row in data:
+            print(row)  # Display cleaned data
+
+# Example usage
+clean_csv("missing_data.csv")
+output:
+['name', 'age city']
+['alice', 'newyork']
+[' bob', '25']
+['charlie', '35', 'chicago']
+
+............................................................
+
+2. Validate JSON data for required fields and correct data types
+
+import json
+
+def validate_json(filename):
+    with open(filename, 'r') as file:
+        data = json.load(file)  # Load JSON file
+
+        for item in data:
+            if not all(key in item for key in ["Product ID", "Name", "Price"]):
+                print(f"Missing fields in: {item}")
+            elif not isinstance(item["Product ID"], int) or not isinstance(item["Name"], str) or not isinstance(item["Price"], (int, float)):
+                print(f"Incorrect data types in: {item}")
+            else:
+                print(f"Valid entry: {item}")
+
+# Example usage
+validate_json("data.json")
+output
+Invalid Product ID: 'Product ID': 102, 
+invalidprice: 'Price': 40.0

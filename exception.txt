@@ -1,0 +1,48 @@
+1.write a python program to handle a ZeroDivisonError exception when dividing a number by Zero
+try:
+    num = int(input("Enter a number: "))
+    result = num / 0  # This will cause ZeroDivisionError
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero.")
+output:
+
+Enter a number:  20
+Error: Cannot divide by zero.
+...................................................................................................
+2.write a python program that prompts the user to input an integer and raise an valueerrorexception if the
+input is not a valid integer
+try:
+    num = int(input("Enter an integer: "))  # Expecting an integer
+    print("You entered:", num)
+except ValueError:
+    print("Error: Invalid input! Please enter a valid integer.")
+output:
+Enter an integer:  ee
+Error: Invalid input! Please enter a valid integer.
+
+...........................................................................
+3.Write a Python program that opens a file and handles a FileNotFoundError exception if the file does not exist.
+try:
+    filename = input("Enter filename: ")
+    with open(filename, "r") as file:  # Trying to open a file
+        content = file.read()
+        print(content)
+except FileNotFoundError:
+    print("Error: File not found. Please check the filename and try again.")
+output:
+Enter filename:  ss.txt
+Error: File not found. Please check the filename and try again.
+
+
+..............................................
+4.Write a Python program that prompts the user to input two numbers and raises a TypeError
+ exception if the inputs are not numerical.
+try:
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+    print("Sum:", num1 + num2)
+except ValueError:
+    print("Error: Please enter only numerical values.")
+output:
+Enter first number:  e
+Error: Please enter only numerical values.

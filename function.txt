@@ -1,0 +1,64 @@
+1️.Declare a div() function with two parameters, call it, and display their division
+
+def div(a, b):
+    if b == 0:
+        return "Division by zero is not allowed."
+    return a / b
+
+# Get user input
+num1 = float(input("Enter the numerator: "))
+num2 = float(input("Enter the denominator: "))
+
+# Call the function and display the result
+result = div(num1, num2)
+print(f"The result of division is: {result}")
+
+Enter the numerator:  20
+Enter the denominator:  2
+The result of division is: 10.0
+......................................................
+2️.Declare a square() function with one parameter, call it, and display the square
+
+def square(num):
+    return num ** 2
+
+num = float(input("Enter a number: "))
+print(f"Square of {num} is {square(num)}")
+
+output
+Enter a number:  4
+Square of 4.0 is 16.0
+....................................................
+
+3. Use max() and min() functions to display the max and min of 5 random numbers
+python
+import random
+
+numbers = [random.randint(1, 100) for _ in range(5)]
+
+print("Generated numbers:", numbers)
+print("Maximum number:", max(numbers))
+print("Minimum number:", min(numbers))
+output:
+Generated numbers: [22, 34, 3, 48, 25]
+Maximum number: 48
+Minimum number: 3
+.....................................................
+4.Accept a name and display it in lowercase using lower()
+
+name = input("Enter your name: ")
+print("Lowercase name:", name.lower())
+
+OUTPUT:
+Enter your name:  VARUN
+Lowercase name: varun
+.....................................
+5.Write a lambda function to check if a number is positive, negative, or zero
+
+check_number = lambda num: "Positive" if num > 0 else "Negative" if num < 0 else "Zero"
+
+num = float(input("Enter a number: "))
+print(f"The number is {check_number(num)}.")
+output:
+Enter a number:  3
+The number is Positive.

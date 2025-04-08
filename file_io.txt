@@ -1,0 +1,70 @@
+1.1. Read and display the contents of "ABC.txt" line by line
+
+def read_file():
+    try:
+        with open("abc.txt", "r") as file:
+            for line in file:
+                print(line.strip())  # Removes extra spaces/newlines
+    except FileNotFoundError:
+        print("File 'abc.txt' not found.")
+
+read_file()
+
+output:
+hello welcome to anudip weep program in python
+
+...........................................................................
+
+2. Count and display the total number of words in "ABC.txt"
+
+
+
+def count_words():
+    try:
+        with open("abc.txt", "r") as file:
+            text = file.read()
+            words = text.split()  # Split text into words
+            print(f"Total number of words: {len(words)}")
+    except FileNotFoundError:
+        print("File 'abc.txt' not found.")
+
+count_words()
+output:
+Total number of words: 8
+
+.....................................................................
+3. Count the number of uppercase characters in "ABC.txt"
+def count_uppercase():
+    try:
+        with open("abc.txt", "r") as file:
+            text = file.read()
+            uppercase_count = sum(1 for char in text if char.isupper())  # Count uppercase letters
+            print(f"Total uppercase characters: {uppercase_count}")
+    except FileNotFoundError:
+        print("File 'abc.txt' not found.")
+
+count_uppercase()
+
+
+OUTPUT:
+
+Total uppercase characters: 7
+....................................................................
+4. Display words with fewer than 4 characters from "story.txt"
+
+def display_words():
+    try:
+        with open("story.txt", "r") as file:
+            text = file.read()
+            words = text.split()
+            short_words = [word for word in words if len(word) < 4]  # Filter short words
+            print("Words with less than 4 characters:", short_words)
+    except FileNotFoundError:
+        print("File 'story.txt' not found.")
+
+display_words()
+
+
+output
+Words with less than 4 characters: ['sun', 'is', 'up,', 'and', 'the', 'sky', 'is', 'so']
+

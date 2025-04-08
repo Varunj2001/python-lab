@@ -1,0 +1,14 @@
+
+1. Find the Number of Times 4 Appears in a Tuple
+list = [2, 4, 5, 6, 2, 3, 4, 4, 7]
+count_4 = list.count(4)
+print("the number of 4 apperd in the list is:",count_4)
+the number of 4 apperd in the list is: 3
+.......................................
+
+2. Convert a List to a Tuple
+listx = [5, 10, 7, 4, 15, 3]
+tuplex = tuple(listx)
+print(tuplex)
+output:
+the list of tuple: (5, 10, 7, 4, 15, 3)

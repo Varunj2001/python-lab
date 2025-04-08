@@ -1,0 +1,83 @@
+
+1.python prog to check leap year
+
+def is_leap_year(year):
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return True
+    return False
+
+# Get user input
+year = int(input("Enter a year: "))
+
+# Check and display the result
+if is_leap_year(year):
+    print(f"{year} is a leap year.")
+else:
+    print(f"{year} is not a leap year.")
+
+output:
+Enter a year:  2004
+2004 is a leap year.
+.................................................
+2.find largest among three number
+
+
+def find_largest(a, b, c):
+    return max(a, b, c)
+
+# Get user input
+number1 = int(input("Enter first number: "))
+number2 = int(input("Enter second number: "))
+number3 = int(input("Enter third number: "))
+
+# Find and display the largest number
+largest = find_largest(number1, number2, number3)
+print(f"The largest number is {largest}")
+
+output
+Enter first number:  20
+Enter second number:  30
+Enter third number:  10
+The largest number is 30
+
+
+.................................
+
+
+3.to check postive or negative
+
+def check_number(num):
+    if num > 0:
+        return "Positive"
+    elif num < 0:
+        return "Negative"
+    else:
+        return "Zero"
+
+# Get user input
+num = float(input("Enter a number: "))
+
+# Check and display the result
+result = check_number(num)
+print(f"The number is {result}.")
+
+..................................................
+5.a transport company changes the fare according to following table
+
+def calculate_fare(distance):
+    if distance <= 50:
+        rate = 8
+    elif distance <= 100:
+        rate = 10
+    else:
+        rate = 12
+
+    fare = distance * rate
+    return fare
+
+distance = float(input("Enter the distance traveled (in km): "))
+total_fare = calculate_fare(distance)
+print(f"Total fare: Rs. {total_fare}")
+OUTPUT:
+Enter the distance traveled (in km):  55
+Total fare: Rs. 550.0
