@@ -1,0 +1,132 @@
+Lab1:banking system(encapsulation and private attributes)
+
+
+class BankAccount:
+    def __init__(self, account_number):
+        self.__balance = 0  # private attribute
+        self.__account_number = account_number  # private attribute
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"Deposited ₹{amount} successfully.")
+        else:
+            print("Deposit amount must be greater than 0.")
+
+    def withdraw(self, amount):
+        if amount > self.__balance:
+            print("Insufficient balance.")
+        elif amount <= 0:
+            print("Withdrawal amount must be greater than 0.")
+        else:
+            self.__balance -= amount
+            print(f"Withdrew ₹{amount} successfully.")
+
+    def get_balance(self):
+        return self.__balance
+
+    def transfer_money(self, other_account, amount):
+        if amount <= 0:
+            print("Transfer amount must be greater than 0.")
+        elif amount > self.__balance:
+            print("Transfer failed: Insufficient balance.")
+        else:
+            self.__balance -= amount
+            other_account.deposit(amount)
+            print(f"Transferred ₹{amount} to account {other_account.__account_number}.")
+
+# --- Testing the BankAccount class ---
+
+# Step 1: Create accounts and perform deposit/withdraw
+acc1 = BankAccount("ACC123")
+acc2 = BankAccount("ACC456")
+
+acc1.deposit(9000)
+acc1.withdraw(300)
+print("Current balance in acc1:", acc1.get_balance())
+
+# Step 2: Try to access private balance directly
+try:
+    print(acc1.__balance)  # This will raise an AttributeError
+except AttributeError:
+    print("Cannot access private attribute '__balance' directly.")
+
+# Step 3: Transfer money between accounts
+acc1.transfer_money(acc2, 200)
+
+print("Final balance in acc1:", acc1.get_balance())
+print("Final balance in acc2:", acc2.get_balance())
+
+
+output:
+Deposited ₹9000 successfully.
+Withdrew ₹300 successfully.
+Current balance in acc1: 8700
+Cannot access private attribute '__balance' directly.
+Deposited ₹200 successfully.
+Transferred ₹200 to account ACC456.
+Final balance in acc1: 8500
+Final balance in acc2: 200
+......................................................................
+lab3:employee salary management(abstraction)
+
+
+from abc import ABC, abstractmethod
+
+# Abstract base class
+class Employee(ABC):
+    def __init__(self, name, emp_id):
+        self.name = name
+        self.emp_id = emp_id
+
+    @abstractmethod
+    def calculate_salary(self):
+        pass
+
+    @abstractmethod
+    def get_employee_details(self):
+        pass
+
+
+# Full-time employee class
+class FullTimeEmployee(Employee):
+    def __init__(self, name, emp_id, monthly_salary):
+        super().__init__(name, emp_id)
+        self.monthly_salary = monthly_salary
+
+    def calculate_salary(self):
+        return self.monthly_salary
+
+    def get_employee_details(self):
+        return f"Full-Time Employee: {self.name}, ID: {self.emp_id}, Salary: {self.calculate_salary()}"
+
+
+# Part-time employee class
+class PartTimeEmployee(Employee):
+    def __init__(self, name, emp_id, hours_worked, hourly_rate):
+        super().__init__(name, emp_id)
+        self.hours_worked = hours_worked
+        self.hourly_rate = hourly_rate
+
+    def calculate_salary(self):
+        return self.hours_worked * self.hourly_rate
+
+    def get_employee_details(self):
+        return f"Part-Time Employee: {self.name}, ID: {self.emp_id}, Salary: {self.calculate_salary()}"
+
+
+# --- Testing the classes ---
+
+ft_emp = FullTimeEmployee("Varun J", "FT101", 40000)
+pt_emp = PartTimeEmployee("Ravi", "PT202", 50, 200)
+
+print(ft_emp.get_employee_details())
+print(pt_emp.get_employee_details())
+
+
+output:
+
+Full-Time Employee: Varun J, ID: FT101, Salary: 40000
+Part-Time Employee: Ravi, ID: PT202, Salary: 10000
+
+
